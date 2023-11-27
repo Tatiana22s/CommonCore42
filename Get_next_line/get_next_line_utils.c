@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:38:18 by tatianasilv       #+#    #+#             */
-/*   Updated: 2023/11/21 22:45:13 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/27 16:08:16 by tatperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -49,7 +49,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (tmp);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*newstr;
 	int		len1;
@@ -58,7 +58,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	newstr = (char *)mallloc(sizeof(char) * (len1 + len2) + 1);
+	newstr = malloc(sizeof(char) * (len1 + len2) + 1);
 	if (!newstr)
 		return (NULL);
 	i = 0;
@@ -74,5 +74,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	newstr[len1 + i] = '\0';
+	free(s1);
 	return (newstr);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if ((char)c == s[i])
+		return ((char *)&s[i]);
+	return (NULL);
 }
