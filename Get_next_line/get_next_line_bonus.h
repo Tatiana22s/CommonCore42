@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 17:38:09 by tatianasilv       #+#    #+#             */
-/*   Updated: 2023/11/29 10:45:09 by tatperei         ###   ########.fr       */
+/*   Created: 2023/11/29 10:17:46 by tatperei          #+#    #+#             */
+/*   Updated: 2023/11/29 10:39:39 by tatperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdio.h>
 # include <limits.h>
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-char	*get_next_line(int fd);
+char	*get_next_line_bonus(int fd);
 
 size_t	ft_strlen(const char *str);
 void	*ft_memset(void *s, int c, size_t n);

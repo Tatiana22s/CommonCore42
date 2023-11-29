@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 17:38:13 by tatianasilv       #+#    #+#             */
-/*   Updated: 2023/11/29 10:53:58 by tatperei         ###   ########.fr       */
+/*   Created: 2023/11/29 10:17:33 by tatperei          #+#    #+#             */
+/*   Updated: 2023/11/29 10:58:46 by tatperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-/*#include "get_next_line_utils.c"*/
+#include "get_next_line_bonus.h"
 
 char	*readfile(int fd, char *frase)
 {
@@ -87,33 +86,15 @@ char	*readnext(char *frase)
 
 char	*get_next_line(int fd)
 {
-	static char	*content;
+	static char	*content[FOPEN_MAX];
 	char		*buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
-	content = readfile(fd, content);
-	if (!content)
+	content[fd] = readfile(fd, content[fd]);
+	if (!content[fd])
 		return (NULL);
-	buffer = readline(content);
-	content = readnext(content);
+	buffer = readline(content[fd]);
+	content[fd] = readnext(content[fd]);
 	return (buffer);
 }
-/*
-int main(void)
-{
-	int fd;
-	char *line;
-
-	fd = open("teste.txt", O_RDONLY);
-	while (fd)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		printf("%s", line);
-		free (line);
-	}
-	return (0);
-}
-*/
