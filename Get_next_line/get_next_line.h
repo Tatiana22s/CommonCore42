@@ -6,7 +6,7 @@
 /*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:38:09 by tatianasilv       #+#    #+#             */
-/*   Updated: 2023/11/29 10:45:09 by tatperei         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:16:18 by tatperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 
-#endif
-
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
+#  define BUFFER_SIZE 5
+# endif
+
 #endif
