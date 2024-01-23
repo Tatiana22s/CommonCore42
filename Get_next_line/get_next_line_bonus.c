@@ -6,7 +6,7 @@
 /*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:17:33 by tatperei          #+#    #+#             */
-/*   Updated: 2023/11/29 10:58:46 by tatperei         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:11:43 by tatianasilva     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*readnext(char *frase)
 	int		i;
 
 	count = 0;
-	while (frase[count] != '\n' && frase[count]) 
+	while (frase[count] != '\n' && frase[count])
 		count++;
 	if (!frase[count])
 		return (free(frase), NULL);

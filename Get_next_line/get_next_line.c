@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tatperei <tatperei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tatianasilva <tatianasilva@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:38:13 by tatianasilv       #+#    #+#             */
-/*   Updated: 2023/11/29 10:53:58 by tatperei         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:48:48 by tatianasilv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/*#include "get_next_line_utils.c"*/
 
 char	*readfile(int fd, char *frase)
 {
@@ -67,7 +66,7 @@ char	*readnext(char *frase)
 	int		i;
 
 	count = 0;
-	while (frase[count] != '\n' && frase[count]) 
+	while (frase[count] != '\n' && frase[count])
 		count++;
 	if (!frase[count])
 		return (free(frase), NULL);
@@ -99,21 +98,3 @@ char	*get_next_line(int fd)
 	content = readnext(content);
 	return (buffer);
 }
-/*
-int main(void)
-{
-	int fd;
-	char *line;
-
-	fd = open("teste.txt", O_RDONLY);
-	while (fd)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		printf("%s", line);
-		free (line);
-	}
-	return (0);
-}
-*/
